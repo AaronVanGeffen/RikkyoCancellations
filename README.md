@@ -16,6 +16,12 @@ the PHP interpreter as usual:
 $ php rikkyo_cancellation_check.php
 ```
 
+To be notified by email of class cancellations, I use a crontab that runs every morning at 7:
+```
+ # m  h    dom mon dow  command
+   0  7    *   *   *    /usr/bin/php /home/aaron/scripts/rikkyo_cancellation_check.php | mail -E -s "Rikkyo Class Cancellations" user@domain.com
+```
+
 Optionally, a list of all cancellations may be printed by providing the `--all` argument: 
 ```
 $ php rikkyo_cancellation_check.php --all
